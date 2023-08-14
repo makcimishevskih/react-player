@@ -1,0 +1,19 @@
+.btnWrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+
+    cursor: pointer;
+
+    span {
+        font-size: 12px;
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+    }
+}

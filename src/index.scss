@@ -1,0 +1,47 @@
+/* VARS */
+$border-radius: 4px;
+$default-margin: 20px;
+
+// Colors
+$color-black: rgba(0, 0, 0, 1);
+$color-white: rgba(255, 255, 255, 1);
+$color-gray: rgba(243, 242, 242, 1);
+$color-cyan: rgba(0, 255, 255, 1);
+
+// Sizes
+$player-width: 300px;
+$player-height: 500px;
+
+// RESET STYLES
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// DEFAULT STYLES
+html,
+body,
+#root {
+    height: 100%;
+}
+img {
+    display: block;
+}
+ul,
+ol {
+    list-style: none;
+}
+body {
+    background-color: #e5e5e5;
+}
+
+#root {
+}
+
+.container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 0 10px;
+}
