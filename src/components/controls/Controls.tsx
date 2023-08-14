@@ -54,7 +54,6 @@ const Controls: FC<IControlsProps> = ({
         isPlay,
         canPlay,
         currentSongIndex,
-        togglePlay,
         handleIsPlay,
         handleCanPlay,
         handleCurrentTime,

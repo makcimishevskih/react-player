@@ -1,13 +1,11 @@
 /* eslint-disable */
 import { RefObject, useEffect } from 'react';
-import { KeyCodeT } from './useKeyUp';
 
 interface IUseAudio {
     audioRef: RefObject<HTMLAudioElement>;
     isPlay: boolean;
     canPlay: boolean;
     currentSongIndex: number;
-    togglePlay: () => void;
     handleIsPlay: (isPlay: boolean) => void;
     handleCanPlay: (canPlay: boolean) => void;
     handleCurrentTime: (number: number) => void;
@@ -18,7 +16,6 @@ const useAudio = ({
     isPlay,
     canPlay,
     currentSongIndex,
-    togglePlay,
     handleIsPlay,
     handleCanPlay,
     handleCurrentTime,
@@ -46,16 +43,6 @@ const useAudio = ({
             handleIsPlay(true);
         }
     }, [currentSongIndex]);
-
-    useEffect(() => {
-        function handleKeyPress(e: { code: string }) {
-            if (e.code && e.code === KeyCodeT.SPACE) {
-                togglePlay();
-            }
-        }
-        document.addEventListener('keyup', handleKeyPress);
-        return () => document.removeEventListener('keyup', handleKeyPress);
-    });
 };
 
 export default useAudio;

@@ -71,6 +71,3 @@ export default useKeyUp;
 // });
 
 // // добавляем подсказку
-// console.log(
-//     ' Use Keyboard: \n Space to Play/Pause \n Enter to Stop \n Arrows to Change \n Time and Volume'
-// );

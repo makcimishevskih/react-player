@@ -97,6 +97,14 @@ const Player: FC<IPlayerProps> = ({
                     </div>
                 )}
 
+                {/* PROGRESSBAR */}
+                <Progress
+                    handleIsPlay={handleIsPlay}
+                    audioRef={audioRef}
+                    currentTime={currentTime}
+                    handleCurrentTime={handleCurrentTime}
+                />
+
                 {/* CONTROLS */}
                 <Controls
                     isPlay={isPlay}
@@ -109,14 +117,6 @@ const Player: FC<IPlayerProps> = ({
                     handleCurrentTime={handleCurrentTime}
                     handleCurrentSongIndex={handleCurrentSongIndex}
                     playlistArray={playlistArray && playlistArray}
-                />
-
-                {/* PROGRESSBAR */}
-                <Progress
-                    handleIsPlay={handleIsPlay}
-                    audioRef={audioRef}
-                    currentTime={currentTime}
-                    handleCurrentTime={handleCurrentTime}
                 />
             </div>
         </div>

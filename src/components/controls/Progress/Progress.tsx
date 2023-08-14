@@ -2,7 +2,7 @@
 import css from './Progress.module.scss';
 
 import { ChangeEvent, FC, RefObject, useEffect, useState } from 'react';
-import { calcSongTime, getTime } from '../../../utils/helpers';
+import { calcSongTime } from '../../../utils/helpers';
 
 // SMOOTH BAR
 interface IProgressProps {
@@ -46,7 +46,7 @@ const Progress: FC<IProgressProps> = ({
         }
     };
 
-    const translate = `translateX(${-100 + currentTime / (duration / 100)}%)`;
+    const translateX = `translateX(${-100 + currentTime / (duration / 100)}%)`;
 
     return (
         <div className={css.progress}>
@@ -64,7 +64,7 @@ const Progress: FC<IProgressProps> = ({
             <div
                 className={css.progressBarFill}
                 style={{
-                    transform: translate,
+                    transform: translateX,
                 }}
             />
         </div>
