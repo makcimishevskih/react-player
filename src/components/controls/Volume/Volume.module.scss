@@ -1,165 +1,21 @@
-.playerWrapper {
-    padding: 100px;
-    .player {
-        background-color: rgba(24, 180, 185, 0.3);
+.volumeBtn {
+    position: relative;
 
-        margin: 0 auto;
-        padding: 20px;
-
-        border-radius: 8px;
-    }
-}
-
-.imgWrapper {
-    margin: 0 auto;
-
-    img {
-        margin: 0 auto;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-    }
-}
-
-.controls {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
 
-    margin-top: 20px;
-    .playBtn,
-    .pauseBtn,
-    .stopBtn,
-    .volumeBtn,
-    .nextBtn,
-    .prevBtn,
-    .repeatBtn,
-    .randomBtn {
-        position: relative;
+    padding: 5px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding: 5px;
-
-        cursor: pointer;
-    }
-    .playBtn span,
-    .pauseBtn span,
-    .stopBtn span,
-    .volumeBtn span,
-    .nextBtn span,
-    .prevBtn span,
-    .randomBtn span {
+    cursor: pointer;
+    & span {
         font-size: 12px;
         position: absolute;
         top: 50%;
         left: 5px;
         transform: translateY(-50%);
     }
-    .repeatBtn {
-        span {
-            content: '';
 
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            user-select: none;
-            pointer-events: none;
-
-            font-size: 24px;
-            // content: '1';
-            // color: yellow;
-        }
-    }
-}
-
-.progress {
-    position: relative;
-    z-index: 10;
-    .currentTime,
-    .duration {
-        position: absolute;
-        top: 45%;
-        font-size: 18px;
-        font-weight: bold;
-        z-index: 2;
-        pointer-events: none;
-        user-select: none;
-    }
-    .currentTime {
-        left: 0;
-    }
-    .duration {
-        right: 0;
-    }
-    .progressBarFill {
-        position: absolute;
-        top: 20px;
-        left: 0;
-        z-index: 0;
-
-        height: 20px;
-        border-radius: 4px;
-        background-color: rgba(0, 255, 255, 0.6);
-        pointer-events: none;
-    }
-}
-
-.progressBar[type='range'] {
-    margin-top: 20px;
-    width: 100%;
-    background-color: rgba(243, 242, 242, 1);
-
-    appearance: none;
-    border-radius: 4px;
-}
-.progressBar[type='range']::-webkit-slider-runnable-track {
-    height: 20px;
-    position: relative;
-    z-index: 0;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 255, 255, 1);
-    cursor: pointer;
-}
-.progressBar[type='range']::-moz-range-track {
-    height: 10px;
-    border-radius: 10px/100%;
-    border: 1px solid cyan;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.progressBar[type='range']::-webkit-slider-thumb {
-    width: 1px;
-    height: 24px;
-
-    margin-top: -5px;
-
-    appearance: none;
-    cursor: pointer;
-}
-.progressBar[type='range']::-moz-range-thumb {
-    position: relative;
-    z-index: 10;
-
-    width: 1px;
-    height: 24px;
-
-    margin-top: -5px;
-
-    background: #ecf0f1;
-    border: 1px solid cyan;
-    border-radius: 4px;
-    appearance: none;
-    cursor: pointer;
-}
-
-.volumeBtn {
-    position: relative;
     .wrap {
         display: flex;
         align-items: center;
@@ -227,49 +83,42 @@
         bottom: none;
         outline: none;
     }
-}
+    &::-webkit-slider-runnable-track {
+        height: 10px;
+        -webkit-appearance: none;
+        color: #13bba4;
+        margin-top: -1px;
+    }
+    &::-moz-range-track {
+        height: 10px;
+        -moz-appearance: none;
+        color: #13bba4;
+        margin-top: -1px;
+    }
 
-.volumeBar[type='range']::-webkit-slider-runnable-track {
-    height: 10px;
-    -webkit-appearance: none;
-    color: #13bba4;
-    margin-top: -1px;
-}
-.volumeBar[type='range']::-moz-range-track {
-    height: 10px;
-    -moz-appearance: none;
-    color: #13bba4;
-    margin-top: -1px;
-}
+    &::-webkit-slider-thumb {
+        position: relative;
+        z-index: 3;
+        width: 20px;
+        height: 20px;
 
-.volumeBar[type='range']::-webkit-slider-thumb {
-    position: relative;
-    z-index: 3;
-    width: 20px;
-    height: 20px;
+        margin-top: -5px;
 
-    margin-top: -5px;
+        background-color: #5bffe9;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        -webkit-appearance: none;
+    }
+    &::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
 
-    background-color: #5bffe9;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    -webkit-appearance: none;
-}
-.volumeBar[type='range']::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+        margin-top: -5px;
 
-    margin-top: -5px;
-
-    background-color: #5bffe9;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    -moz-appearance: none;
-    cursor: pointer;
-}
-
-.defaultAudio {
-    position: absolute;
-    top: 50px;
-    left: 20px;
+        background-color: #5bffe9;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
 }

@@ -39,7 +39,7 @@ const Loop: FC<ILoopProps> = ({
         }
     }
     return (
-        <div className={css.repeatBtn} onClick={handleToggleLoop}>
+        <div className={css.loopBtn} onClick={handleToggleLoop}>
             <ImLoop2
                 color={loop || typeof loop === 'string' ? 'yellow' : 'white'}
                 size={40}

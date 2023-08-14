@@ -1,19 +1,22 @@
+/* eslint-disable */
 import css from './Progress.module.scss';
 
 import { ChangeEvent, FC, RefObject, useEffect, useState } from 'react';
 import { calcSongTime, getTime } from '../../../utils/helpers';
 
+// SMOOTH BAR
 interface IProgressProps {
     audioRef: RefObject<HTMLAudioElement>;
     currentTime: number;
-    // eslint-disable-next-line no-unused-vars
     handleCurrentTime: (number: number) => void;
+    handleIsPlay: (isPlay: boolean) => void;
 }
 
 const Progress: FC<IProgressProps> = ({
     audioRef,
     currentTime,
     handleCurrentTime,
+    handleIsPlay,
 }) => {
     const [duration, setDuration] = useState<number>(0);
 
@@ -27,21 +30,23 @@ const Progress: FC<IProgressProps> = ({
         audioRef.current?.addEventListener('loadedmetadata', initialAudioData);
 
         return () =>
-            // eslint-disable-next-line
             audioRef.current?.removeEventListener(
                 'loadedmetadata',
                 initialAudioData
             );
-        // eslint-disable-next-line
     }, []);
 
-    // audioRef.current.currentTime = value;
     const handleProgress = (e: ChangeEvent<HTMLInputElement>) => {
         if (audioRef.current) {
             const value = +e.target.value;
+            audioRef.current.play();
+            audioRef.current.currentTime = value;
+            handleIsPlay(true);
             handleCurrentTime(value);
         }
     };
+
+    const translate = `translateX(${-100 + currentTime / (duration / 100)}%)`;
 
     return (
         <div className={css.progress}>
@@ -57,11 +62,10 @@ const Progress: FC<IProgressProps> = ({
                 onChange={handleProgress}
             />
             <div
-                // CHANGE WIDTH ON TRANSFORM TRANSLATE BLOCK
-                style={{
-                    width: `${getTime(currentTime, duration)}%`,
-                }}
                 className={css.progressBarFill}
+                style={{
+                    transform: translate,
+                }}
             />
         </div>
     );

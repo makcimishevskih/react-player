@@ -43,6 +43,7 @@ const Player: FC<IPlayerProps> = ({
     playlistArray = [],
 }) => {
     const audioRef = useRef(null) as RefObject<HTMLAudioElement>;
+    const [isPlay, setIsPlay] = useState<boolean>(false);
     const [currentTime, setCurrentTime] = useState<number>(0);
     const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
 
@@ -51,6 +52,21 @@ const Player: FC<IPlayerProps> = ({
         // eslint-disable-next-line
         [currentSongIndex]
     );
+
+    function handleIsPlay(isPlay: boolean) {
+        setIsPlay(isPlay);
+    }
+    function togglePlay() {
+        if (audioRef.current) {
+            if (isPlay) {
+                audioRef.current.pause();
+                setIsPlay(false);
+            } else {
+                audioRef.current.play();
+                setIsPlay(true);
+            }
+        }
+    }
 
     function handleCurrentTime(time: number) {
         if (audioRef.current) {
@@ -83,6 +99,9 @@ const Player: FC<IPlayerProps> = ({
 
                 {/* CONTROLS */}
                 <Controls
+                    isPlay={isPlay}
+                    togglePlay={togglePlay}
+                    handleIsPlay={handleIsPlay}
                     song={song}
                     audioRef={audioRef}
                     currentTime={currentTime}
@@ -94,6 +113,7 @@ const Player: FC<IPlayerProps> = ({
 
                 {/* PROGRESSBAR */}
                 <Progress
+                    handleIsPlay={handleIsPlay}
                     audioRef={audioRef}
                     currentTime={currentTime}
                     handleCurrentTime={handleCurrentTime}

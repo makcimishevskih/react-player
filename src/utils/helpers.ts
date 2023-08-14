@@ -21,8 +21,7 @@ export const getRandomSongIndex = (
 };
 
 export const getTime = (currTime: number, fullTime: number) => {
-    const calc = currTime / (fullTime / 100);
-    if (calc < 1) return 0;
+    const calc = (currTime / (fullTime / 100)).toFixed(3);
     return calc;
 };
 
@@ -31,5 +30,5 @@ export const addZero = (num: number): string | number => {
 };
 
 export const calcSongTime = (time: number): string => {
-    return `${Math.floor(time / 60)}:${addZero(time % 60)}`;
+    return `${Math.floor(time / 60)}:${addZero(Math.floor(time) % 60)}`;
 };

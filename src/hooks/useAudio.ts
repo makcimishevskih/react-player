@@ -29,10 +29,10 @@ const useAudio = ({
             timer = setInterval(() => {
                 if (audioRef.current) {
                     const currTime: number = audioRef.current.currentTime;
-                    const value = Math.floor(currTime);
+                    const value = currTime;
                     handleCurrentTime(value);
                 }
-            }, 500);
+            }, 60);
         }
         return () => clearInterval(timer);
         // eslint-disable-next-line

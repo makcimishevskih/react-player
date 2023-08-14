@@ -23,25 +23,30 @@ import DefaultAudio from '../DefaultAudio/DefaultAudio';
 interface IControlsProps {
     audioRef: RefObject<HTMLAudioElement>;
     song: ISong;
+    isPlay: boolean;
+    currentTime: number;
     playlistArray: ISong[];
     currentSongIndex: number;
-    currentTime: number;
+    togglePlay: () => void;
+    handleIsPlay: (isPlay: boolean) => void;
     handleCurrentTime: (number: number) => void;
     handleCurrentSongIndex: (number: number) => void;
 }
 
 const Controls: FC<IControlsProps> = ({
     audioRef,
-    currentTime,
-    handleCurrentTime,
     song,
+    isPlay,
+    currentTime,
     playlistArray,
     currentSongIndex,
+    togglePlay,
+    handleIsPlay,
+    handleCurrentTime,
     handleCurrentSongIndex,
 }) => {
     const [loop, setLoop] = useState<LoopT>(false);
     const [random, setRandom] = useState<boolean>(false);
-    const [isPlay, setIsPlay] = useState<boolean>(false);
     const [canPlay, setCanPlay] = useState<boolean>(false);
 
     useAudio({
@@ -56,27 +61,14 @@ const Controls: FC<IControlsProps> = ({
     });
     useKeyUp({ togglePlay, handleStop });
 
-    function handleIsPlay(isPlay: boolean) {
-        setIsPlay(isPlay);
-    }
     function handleCanPlay(isPlay: boolean) {
         setCanPlay(isPlay);
     }
-    function togglePlay() {
-        if (audioRef.current) {
-            if (isPlay) {
-                audioRef.current.pause();
-                setIsPlay(false);
-            } else {
-                audioRef.current.play();
-                setIsPlay(true);
-            }
-        }
-    }
+
     function handleStop() {
         if (audioRef.current) {
             audioRef.current.pause();
-            setIsPlay(false);
+            handleIsPlay(false);
             handleCurrentTime(0);
         }
     }
@@ -191,6 +183,7 @@ const Controls: FC<IControlsProps> = ({
             component: <Random random={random} handleRandom={handleRandom} />,
         },
     ];
+
     return (
         <div className={css.controls}>
             {controlButtons.map(({ name, component }) => (
