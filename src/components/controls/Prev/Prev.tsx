@@ -2,7 +2,7 @@ import css from './Prev.module.scss';
 
 import { FC } from 'react';
 import { TbPlayerTrackPrevFilled } from 'react-icons/tb';
-import { LoopT } from '../../Player/Player';
+import { LoopT } from '../../Player/types';
 
 interface IPrevProps {
     loop: LoopT;

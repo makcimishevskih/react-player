@@ -1,15 +1,14 @@
 import css from './PlayPause.module.scss';
 
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
 import { FaPause, FaPlay } from 'react-icons/fa';
 
 interface IPlayPauseProps {
     isPlay: boolean;
-    audioRef: RefObject<HTMLAudioElement>;
     togglePlay: () => void;
 }
 
-const PlayPause: FC<IPlayPauseProps> = ({ audioRef, isPlay, togglePlay }) => {
+const PlayPause: FC<IPlayPauseProps> = ({ isPlay, togglePlay }) => {
     return (
         <div onClick={togglePlay} className={css.pauseBtn}>
             {isPlay ? (

@@ -2,7 +2,7 @@ import css from './Next.module.scss';
 
 import { FC } from 'react';
 import { TbPlayerTrackNextFilled } from 'react-icons/tb';
-import { LoopT } from '../../Player/Player';
+import { LoopT } from '../../Player/types';
 
 interface INextProps {
     loop: LoopT;

@@ -1,14 +1,7 @@
+/* eslint-disable no-unused-vars */
 import css from './Controls.module.scss';
 
-import {
-    Dispatch,
-    FC,
-    RefObject,
-    SetStateAction,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import { FC, RefObject, useState } from 'react';
 
 import { ISong, LoopT } from '../Player/types';
 
@@ -149,17 +142,11 @@ const Controls: FC<IControlsProps> = ({
     const controlButtons = [
         {
             name: 'play-pause',
-            component: (
-                <PlayPause
-                    isPlay={isPlay}
-                    audioRef={audioRef}
-                    togglePlay={togglePlay}
-                />
-            ),
+            component: <PlayPause isPlay={isPlay} togglePlay={togglePlay} />,
         },
         {
             name: 'stop',
-            component: <Stop audioRef={audioRef} handleStop={handleStop} />,
+            component: <Stop handleStop={handleStop} />,
         },
         {
             name: 'volume',

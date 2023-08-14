@@ -10,7 +10,7 @@ export enum KeyCodeT {
     ESCAPE = 'Escape',
 }
 
-const useKeyUp = ({ togglePlay }: IUseKeyUpAudio) => {
+const useKeyUp = ({ togglePlay, handleStop }: IUseKeyUpAudio) => {
     function handleKeyPress(e: { code: string }) {
         console.log(e.code);
         if (e.code) {

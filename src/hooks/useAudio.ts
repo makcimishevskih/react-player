@@ -30,7 +30,6 @@ const useAudio = ({
                 if (audioRef.current) {
                     const currTime: number = audioRef.current.currentTime;
                     const value = Math.floor(currTime);
-                    console.log(value);
                     handleCurrentTime(value);
                 }
             }, 500);

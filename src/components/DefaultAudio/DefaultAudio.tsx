@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import css from './DefaultAudio.module.scss';
 
 import { FC, RefObject } from 'react';

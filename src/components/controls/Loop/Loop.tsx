@@ -2,7 +2,7 @@ import css from './Loop.module.scss';
 
 import { FC, RefObject } from 'react';
 import { ImLoop2 } from 'react-icons/im';
-import { LoopT } from '../../Player/Player';
+import { LoopT } from '../../Player/types';
 
 interface ILoopProps {
     // eslint-disable-next-line

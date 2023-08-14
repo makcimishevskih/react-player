@@ -1,14 +1,13 @@
 import css from './Stop.module.scss';
 
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
 import { FaStop } from 'react-icons/fa';
 
 interface IStopProps {
     handleStop: () => void;
-    audioRef: RefObject<HTMLAudioElement>;
 }
 
-const Stop: FC<IStopProps> = ({ audioRef, handleStop }) => {
+const Stop: FC<IStopProps> = ({ handleStop }) => {
     return (
         <div onClick={handleStop} className={css.stopBtn}>
             <FaStop color="white" size={40} />
