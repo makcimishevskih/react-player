@@ -24,4 +24,7 @@
    <li>
       TimeBar
    </li>
+   <li>
+      Loop
+   </li>
 </ul>
